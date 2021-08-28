@@ -50,7 +50,7 @@ const GithubProvider = ({ children }) => {
 			setGithubUser(response.data);
 			const { repos_url, followers_url } = response.data;
 			await Promise.allSettled([
-				axios(`${repos_url}/repos?per_page=100`),
+				axios(`${repos_url}?per_page=100`),
 				axios(followers_url),
 			])
 				.then(results => {
